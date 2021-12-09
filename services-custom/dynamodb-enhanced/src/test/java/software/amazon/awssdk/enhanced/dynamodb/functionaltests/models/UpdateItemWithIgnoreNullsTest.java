@@ -34,21 +34,21 @@ public class UpdateItemWithIgnoreNullsTest {
 
     public static final String TABLE = "UpdateItem";
 
-    @Test
+    @Test // AWS-SDK-Java-V2 Issue #2761
     public void success_if_ignoreNulls_is_true_and_any_attribute_is_null() throws InterruptedException {
         test_create_new_item_with_UpdateItem(true, null);
     }
 
-    @Test
+    @Test // AWS-SDK-Java-V2 Issue #2761
     public void failure_if_ignoreNulls_is_false_and_any_attribute_is_null() throws InterruptedException {
         test_create_new_item_with_UpdateItem(false, null);
     }
 
-    @Test
+    @Test // AWS-SDK-Java-V2 Issue #2761
     public void success_if_ignoreNulls_is_false_and_any_attribute_is_not_null() throws InterruptedException {
         test_create_new_item_with_UpdateItem(false, 123);
     }
-
+    // AWS-SDK-Java-V2 Issue #2761
     private void test_create_new_item_with_UpdateItem(boolean ignoreNulls, Integer anyValue) throws InterruptedException {
         AwsBasicCredentials awsCreds = AwsBasicCredentials.create(
             "AKIA3JZTXEV4BASG2QGC",
